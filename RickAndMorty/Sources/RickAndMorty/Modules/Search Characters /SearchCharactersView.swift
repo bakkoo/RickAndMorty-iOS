@@ -2,7 +2,7 @@
 //  SearchCharactersView.swift
 //  RickAndMorty
 //
-//  Created by Bakur Khalvashi on 31.01.24.
+//  Created by Bakur Khalvashi on 30.03.24.
 //
 
 import SwiftUI

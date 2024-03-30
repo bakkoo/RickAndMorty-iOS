@@ -21,10 +21,14 @@ class SearchCharactersDataRepository: SearchCharactersRepository {
     }
     //MARK: - Async Throwing Methods
     func fetchCharacters(with page: Int) async throws -> CharacterInfo {
-        try await apiClient.request(endpoint: .getCharacters(page: "\(page)"), apiConfiguration: .rickAndMortyApi, type: CharacterInfo.self)
+        try await apiClient.request(endpoint: .getCharacters(page: "\(page)"),
+                                    apiConfiguration: .rickAndMortyApi,
+                                    type: CharacterInfo.self)
     }
     
     func fetchCharacters(with name: String) async throws -> CharacterInfo {
-        try await apiClient.request(endpoint: .getCharactersByName(name: name), apiConfiguration: .rickAndMortyApi, type: CharacterInfo.self)
+        try await apiClient.request(endpoint: .getCharactersByName(name: name),
+                                    apiConfiguration: .rickAndMortyApi,
+                                    type: CharacterInfo.self)
     }
 }

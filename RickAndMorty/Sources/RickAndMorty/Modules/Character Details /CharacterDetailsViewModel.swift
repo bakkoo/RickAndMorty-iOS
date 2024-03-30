@@ -2,10 +2,11 @@
 //  CharacterDetailsViewModel.swift
 //  RickAndMorty
 //
-//  Created by Bakur Khalvashi on 01.02.24.
+//  Created by Bakur Khalvashi on 30.03.24.
 //
 
 import Foundation
+
 //MARK: - View Model Protocol
 protocol CharacterDetailsViewModelProtocol: ObservableObject {
     var character: Character { get set }

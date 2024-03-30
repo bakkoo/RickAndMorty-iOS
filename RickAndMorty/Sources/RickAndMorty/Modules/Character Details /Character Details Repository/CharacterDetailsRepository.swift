@@ -21,10 +21,14 @@ class CharacterDetailsDataRepository: CharacterDetailsRepository {
     }
     //MARK: - Async Throwing Methods
     func fetchEpisode(from episodeId: String) async throws -> Episode {
-        return try await apiClient.request(endpoint: .getEpisodes(episodeId: episodeId), apiConfiguration: .rickAndMortyApi, type: Episode.self)
+        return try await apiClient.request(endpoint: .getEpisodes(episodeId: episodeId),
+                                           apiConfiguration: .rickAndMortyApi,
+                                           type: Episode.self)
     }
     
     func fetchCharacter(id: String) async throws -> Character {
-        return try await apiClient.request(endpoint: .getCharactersById(id: id), apiConfiguration: .rickAndMortyApi, type: Character.self)
+        return try await apiClient.request(endpoint: .getCharactersById(id: id),
+                                           apiConfiguration: .rickAndMortyApi,
+                                           type: Character.self)
     }
 }

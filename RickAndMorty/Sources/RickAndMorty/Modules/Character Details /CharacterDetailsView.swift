@@ -2,7 +2,7 @@
 //  CharacterDetailsView.swift
 //  RickAndMorty
 //
-//  Created by Bakur Khalvashi on 01.02.24.
+//  Created by Bakur Khalvashi on 30.03.24.
 //
 
 import SwiftUI
@@ -20,17 +20,17 @@ struct CharacterDetailsView: View {
             characterItemView
             episodesTitle
             episodesList
-            .onReceive(viewModel.$error, perform: { err in
-                if err != nil {
-                    showAlert.toggle()
-                }
-            })
-            .alert(isPresented: $showAlert, content: {
-                Alert(
-                    title: Text("Error"),
-                    message: Text(viewModel.error?.localizedDescription ?? "Something went wrong...")
-                )
-            })
+                .onReceive(viewModel.$error, perform: { err in
+                    if err != nil {
+                        showAlert.toggle()
+                    }
+                })
+                .alert(isPresented: $showAlert, content: {
+                    Alert(
+                        title: Text("Error"),
+                        message: Text(viewModel.error?.localizedDescription ?? "Something went wrong...")
+                    )
+                })
         }
         .onAppear(perform: {
             Task {
