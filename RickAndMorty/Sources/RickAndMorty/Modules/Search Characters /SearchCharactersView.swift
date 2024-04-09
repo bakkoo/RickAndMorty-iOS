@@ -11,6 +11,7 @@ struct SearchCharactersView: View {
     //MARK: - Binding Variables
     @ObservedObject var viewModel: SearchCharactersViewModel
     @State private var showAlert = false
+    @State private var showFilter = false
     
     var body: some View {
         NavigationView {
@@ -40,6 +41,20 @@ struct SearchCharactersView: View {
                 }
             })
             .navigationTitle("Search Characters")
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button(action: {
+                        showFilter.toggle()
+                    }, label: {
+                        Image(systemName: "line.3.horizontal.decrease.circle")
+                    })
+                }
+            }
+            .sheet(isPresented: $showFilter, content: {
+                FilterView()
+                    .presentationDetents([.large])
+                    .presentationDragIndicator(.visible)
+            })
         }
     }
     //MARK: - Search Bar

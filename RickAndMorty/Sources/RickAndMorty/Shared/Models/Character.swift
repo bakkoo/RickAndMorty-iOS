@@ -55,8 +55,16 @@ struct CharacterLocation: Codable {
 }
 
 // MARK: - Status
-enum CharacterStatus: String, Codable {
+enum CharacterStatus: String, Codable, CaseIterable {
     case alive = "Alive"
     case dead = "Dead"
+    case unknown = "unknown"
+}
+
+//MARK: - Gender
+enum CharacterGender: String, CaseIterable {
+    case female = "Female"
+    case male = "Male"
+    case genderless = "Genderless"
     case unknown = "unknown"
 }
