@@ -22,7 +22,6 @@ struct ExpandableEpisodeItemView: View {
                 withAnimation(.spring) {
                     Image(systemName: isExpanded ? "chevron.up" : "chevron.down")
                         .padding()
-//                        .foregroundStyle(Color.black)
                 }
             }
             .onTapGesture {

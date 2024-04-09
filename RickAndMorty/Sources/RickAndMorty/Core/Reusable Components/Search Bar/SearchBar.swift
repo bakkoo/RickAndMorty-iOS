@@ -13,17 +13,19 @@ struct SearchBar: View {
     var body: some View {
         HStack {
             TextField("Search", text: $text)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-                .padding(.horizontal)
+                .textFieldStyle(.roundedBorder)
+                .padding()
             Spacer()
             if !text.isEmpty {
-                Button("Cancel") {
-                    text = ""
-                    UIApplication
-                        .shared
-                        .sendAction(
-                            #selector(UIResponder.resignFirstResponder),
-                            to: nil, from: nil, for: nil)
+                withAnimation {
+                    Button("Cancel") {
+                        text = ""
+                        UIApplication
+                            .shared
+                            .sendAction(
+                                #selector(UIResponder.resignFirstResponder),
+                                to: nil, from: nil, for: nil)
+                    }
                 }
             }
         }
