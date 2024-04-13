@@ -16,8 +16,8 @@ struct SearchCharactersView: View {
     var body: some View {
         NavigationView {
             VStack {
-                searchBar
                 characterList
+                .searchable(text: $viewModel.searchText)
                 .refreshable {
                     Task {
                         await viewModel.refresh()
@@ -41,25 +41,7 @@ struct SearchCharactersView: View {
                 }
             })
             .navigationTitle("Search Characters")
-            .toolbar {
-                ToolbarItem(placement: .topBarTrailing) {
-                    Button(action: {
-                        showFilter.toggle()
-                    }, label: {
-                        Image(systemName: "line.3.horizontal.decrease.circle")
-                    })
-                }
-            }
-            .sheet(isPresented: $showFilter, content: {
-                FilterView()
-                    .presentationDetents([.large])
-                    .presentationDragIndicator(.visible)
-            })
         }
-    }
-    //MARK: - Search Bar
-    private var searchBar: some View {
-        SearchBar(text: $viewModel.searchText)
     }
     //MARK: - Character List
     private var characterList: some View {
